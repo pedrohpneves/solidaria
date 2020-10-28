@@ -21,6 +21,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"/>
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -29,6 +30,7 @@
   __________________________________________________ -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
   <script type="text/javascript" src="javascript/ASCIIMathML.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
 
 </head>
 <body>
@@ -488,6 +490,31 @@ Caso as mercadorias sejam diferenciadas a maximização ocorre na quantidade que
     </tr>
   </table>
     </p>
+    <h3 style="text-align: center;">Código para resolução</h3>
+  <h5>Duopólio de Cournot</h5>
+  Sendo o preço uma função linear definida como a-bQ o seguinte código encontra as quantidades num duopólio de Cournot:
+  <p>
+  <pre><code class="language-python">
+  from sympy import *
+  qi , qj = symbols('qi qj')
+  a = 
+  b = 
+  P = a - b*(qi + qj)
+  CTi = 
+  CTj = 
+  RTi = a*qi - qi**2 - qi*qj
+  RTj = a*qj-qj**2-qi*qj
+  RMGi = diff(RTi,qi)
+  RMGj = diff(RTj, qj)
+  CMGi = diff(CTi,qi)
+  CMGj = diff(CTj, qj)
+  MAXi = RMGi - CMGi
+  MAXj = RMGj - CTj
+  resp = linsolve([MAXi, MAXj],(qi, qj))
+  print(resp)
+  </pre>
+  </p>
+      
   </div>
 </body>
 </html>
